@@ -77,7 +77,6 @@ export default function Sidebar() {
             HP Explorer
           </Typography>
         </Box>
-        
         <List sx={{ px: 0 }}>
           {menuItems.map((item) => (
             <ListItem key={item.text} disablePadding sx={{ mb: 1 }}>

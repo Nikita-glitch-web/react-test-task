@@ -8,6 +8,8 @@ import CharactersPage from './pages/CharactersPage'
 import CharacterDetails from './pages/CharacterDetails'
 import SpellsPage from './pages/SpellsPage'
 import FavoritesPage from './pages/FavoritesPage'
+import ErrorPage from './pages/ErrorPage'
+import ErrorBoundary from './components/ErrorBoundary'
 
 const createAppTheme = (mode) => createTheme({
   palette: {
@@ -52,15 +54,18 @@ function AppContent() {
   return (
     <ThemeProvider theme={muiTheme}>
       <CssBaseline />
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Navigate to="/characters" replace />} />
-          <Route path="characters" element={<CharactersPage />} />
-          <Route path="characters/:id" element={<CharacterDetails />} />
-          <Route path="spells" element={<SpellsPage />} />
-          <Route path="favorites" element={<FavoritesPage />} />
-        </Route>
-      </Routes>
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/" element={<MainLayout />} errorElement={<ErrorPage />}>
+            <Route index element={<Navigate to="/characters" replace />} />
+            <Route path="characters" element={<CharactersPage />} errorElement={<ErrorPage />} />
+            <Route path="characters/:id" element={<CharacterDetails />} errorElement={<ErrorPage />} />
+            <Route path="spells" element={<SpellsPage />} errorElement={<ErrorPage />} />
+            <Route path="favorites" element={<FavoritesPage />} errorElement={<ErrorPage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Route>
+        </Routes>
+      </ErrorBoundary>
     </ThemeProvider>
   )
 }
