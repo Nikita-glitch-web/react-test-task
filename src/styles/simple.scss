@@ -1,0 +1,476 @@
+/* Clean, modern SCSS styles for Harry Potter Explorer */
+
+// CSS Variables for theming
+:root {
+  --bg-primary: #071021;
+  --bg-secondary: #09202b;
+  --bg-surface: #0f1724;
+  --bg-card: rgba(255, 255, 255, 0.02);
+  --bg-glass: rgba(255, 255, 255, 0.03);
+
+  --text-primary: #e6eef6;
+  --text-secondary: #9aa4b2;
+  --text-muted: #6b7280;
+
+  --accent-primary: #7dd3fc;
+  --accent-secondary: #fbbf24;
+  --accent-danger: #ff4757;
+
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(2, 6, 23, 0.6);
+
+  transition: all 0.3s ease;
+}
+
+// Light theme overrides
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --bg-glass: rgba(248, 250, 252, 0.9);
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --accent-primary: #0284c7;
+  --accent-secondary: #d97706;
+  --accent-danger: #dc2626;
+
+  --border-color: rgba(0, 0, 0, 0.15);
+  --shadow-color: rgba(0, 0, 0, 0.15);
+
+  // Character Cards
+  .character-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+    &:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  // Sidebar
+  .sidebar {
+    background: rgba(248, 250, 252, 0.95);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  // Typography overrides
+  .muted {
+    color: #64748b !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--text-primary) !important;
+  }
+
+  // Material-UI Typography
+  .MuiTypography-root {
+    &.MuiTypography-h1,
+    &.MuiTypography-h2,
+    &.MuiTypography-h3,
+    &.MuiTypography-h4,
+    &.MuiTypography-h5,
+    &.MuiTypography-h6 {
+      color: var(--text-primary) !important;
+    }
+
+    &.MuiTypography-body1,
+    &.MuiTypography-body2 {
+      color: var(--text-secondary) !important;
+    }
+
+    &.MuiTypography-subtitle1,
+    &.MuiTypography-subtitle2 {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Input fields
+  .MuiTextField-root {
+    .MuiOutlinedInput-root {
+      background: rgba(255, 255, 255, 0.9);
+
+      .MuiOutlinedInput-notchedOutline {
+        border-color: rgba(0, 0, 0, 0.2);
+      }
+
+      &:hover .MuiOutlinedInput-notchedOutline {
+        border-color: rgba(0, 0, 0, 0.3);
+      }
+
+      &.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: var(--accent-primary);
+      }
+    }
+
+    .MuiInputLabel-root {
+      color: var(--text-muted);
+
+      &.Mui-focused {
+        color: var(--accent-primary);
+      }
+    }
+
+    .MuiInputBase-input {
+      color: var(--text-primary);
+    }
+  }
+
+  // Buttons
+  .MuiButton-root {
+    color: var(--text-primary) !important;
+
+    &.MuiButton-outlined {
+      border-color: var(--border-color) !important;
+
+      &:hover {
+        border-color: var(--accent-primary) !important;
+        background-color: rgba(2, 132, 199, 0.04) !important;
+      }
+    }
+  }
+
+  // Chips
+  .MuiChip-root {
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // Spell cards
+  .spell-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+    h3 {
+      color: var(--accent-primary) !important;
+    }
+
+    .description {
+      color: var(--text-secondary) !important;
+    }
+  }
+
+  // Load more button
+  .load-more-button {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: var(--text-primary) !important;
+
+    &:hover {
+      background: var(--accent-primary) !important;
+      color: white !important;
+      border-color: var(--accent-primary) !important;
+    }
+  }
+}
+
+// Reset & Base Styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    var(--bg-secondary) 100%
+  );
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+// Layout Components
+.app-root {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 280px;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-glass) 25%,
+    rgba(255, 255, 255, 0.05) 50%,
+    var(--bg-glass) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* Load More Button Animations */
+.load-more-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transition: left 0.6s;
+  }
+
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(125, 211, 252, 0.3);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+/* Card Stagger Animation */
+@keyframes cardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.character-card-enter {
+  animation: cardSlideUp 0.5s ease-out forwards;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced card hover effects */
+.character-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Pagination fade-in effect */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pagination-content {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+// Utility Classes
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  color: var(--text-secondary);
+}
+
+.error {
+  color: var(--accent-danger);
+}
+
+// Grid & Card Layouts
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+// Character Card Styles
+.character-card {
+  height: 140px; // Fixed height for uniform cards
+  display: flex;
+  align-items: center;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px var(--shadow-color);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .content {
+    flex: 1;
+    min-width: 0;
+    margin-left: 1rem;
+
+    .name {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 1rem;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .house {
+      margin-bottom: 0.25rem;
+    }
+
+    .actor {
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .favorite-btn {
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+  }
+}
+
+// House Colors
+.house-gryffindor {
+  background-color: #740001;
+  color: white;
+}
+.house-slytherin {
+  background-color: #1a472a;
+  color: white;
+}
+.house-ravenclaw {
+  background-color: #0e1a40;
+  color: white;
+}
+.house-hufflepuff {
+  background-color: #ecb939;
+  color: black;
+}
+.house-unknown {
+  background-color: #555;
+  color: white;
+}
+
+// Theme Toggle
+.theme-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+
+  .MuiIconButton-root {
+    background: var(--bg-glass) !important;
+    border: 1px solid var(--border-color) !important;
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: var(--bg-card) !important;
+      border-color: var(--accent-primary) !important;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 25px var(--shadow-color);
+    }
+  }
+}
+
+// Ensure smooth transitions for theme changes
+* {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease !important;
+}
