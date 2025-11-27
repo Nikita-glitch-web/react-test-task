@@ -9,7 +9,6 @@ import CharacterDetails from './pages/CharacterDetails'
 import SpellsPage from './pages/SpellsPage'
 import FavoritesPage from './pages/FavoritesPage'
 import ErrorPage from './pages/ErrorPage'
-import ErrorBoundary from './components/ErrorBoundary'
 
 const createAppTheme = (mode) => createTheme({
   palette: {
@@ -54,7 +53,6 @@ function AppContent() {
   return (
     <ThemeProvider theme={muiTheme}>
       <CssBaseline />
-      <ErrorBoundary>
         <Routes>
           <Route path="/" element={<MainLayout />} errorElement={<ErrorPage />}>
             <Route index element={<Navigate to="/characters" replace />} />
@@ -65,7 +63,6 @@ function AppContent() {
             <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>
-      </ErrorBoundary>
     </ThemeProvider>
   )
 }
