@@ -19,44 +19,54 @@
   --border-color: rgba(255, 255, 255, 0.1);
   --shadow-color: rgba(2, 6, 23, 0.6);
 
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
 }
 
 // Light theme overrides
 [data-theme="light"] {
   --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
+  --bg-secondary: #f1f5f9;
   --bg-surface: #ffffff;
-  --bg-card: rgba(255, 255, 255, 0.95);
-  --bg-glass: rgba(248, 250, 252, 0.9);
+  --bg-card: rgba(255, 255, 255, 0.98);
+  --bg-glass: rgba(241, 245, 249, 0.95);
 
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
   --text-muted: #64748b;
 
-  --accent-primary: #0284c7;
-  --accent-secondary: #d97706;
+  --accent-primary: #0369a1;
+  --accent-secondary: #ea580c;
   --accent-danger: #dc2626;
 
-  --border-color: rgba(0, 0, 0, 0.15);
-  --shadow-color: rgba(0, 0, 0, 0.15);
+  --border-color: rgba(0, 0, 0, 0.12);
+  --shadow-color: rgba(0, 0, 0, 0.1);
 
   // Character Cards
   .character-card {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.98) !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
 
     &:hover {
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+      border-color: rgba(0, 0, 0, 0.25) !important;
+      background: rgba(255, 255, 255, 1) !important;
+    }
+
+    .name {
+      color: var(--text-primary) !important;
+    }
+
+    .actor {
+      color: var(--text-secondary) !important;
     }
   }
 
   // Sidebar
   .sidebar {
-    background: rgba(248, 250, 252, 0.95);
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(241, 245, 249, 0.98) !important;
+    border-right: 1px solid rgba(0, 0, 0, 0.12) !important;
+    backdrop-filter: blur(20px);
   }
 
   // Typography overrides
@@ -81,96 +91,205 @@
     &.MuiTypography-h4,
     &.MuiTypography-h5,
     &.MuiTypography-h6 {
-      color: var(--text-primary) !important;
+      color: #1e293b !important;
     }
 
-    &.MuiTypography-body1,
+    &.MuiTypography-body1 {
+      color: #475569 !important;
+    }
+
     &.MuiTypography-body2 {
-      color: var(--text-secondary) !important;
+      color: #64748b !important;
     }
 
     &.MuiTypography-subtitle1,
     &.MuiTypography-subtitle2 {
-      color: var(--text-muted) !important;
+      color: #64748b !important;
     }
+  }
+
+  // Card content
+  .MuiCardContent-root {
+    color: var(--text-primary) !important;
   }
 
   // Input fields
   .MuiTextField-root {
     .MuiOutlinedInput-root {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95) !important;
 
       .MuiOutlinedInput-notchedOutline {
-        border-color: rgba(0, 0, 0, 0.2);
+        border-color: rgba(0, 0, 0, 0.25) !important;
       }
 
       &:hover .MuiOutlinedInput-notchedOutline {
-        border-color: rgba(0, 0, 0, 0.3);
+        border-color: rgba(0, 0, 0, 0.4) !important;
       }
 
       &.Mui-focused .MuiOutlinedInput-notchedOutline {
-        border-color: var(--accent-primary);
+        border-color: var(--accent-primary) !important;
       }
     }
 
     .MuiInputLabel-root {
-      color: var(--text-muted);
+      color: #64748b !important;
 
       &.Mui-focused {
-        color: var(--accent-primary);
+        color: var(--accent-primary) !important;
       }
     }
 
     .MuiInputBase-input {
-      color: var(--text-primary);
+      color: #1e293b !important;
+    }
+  }
+
+  // Select fields
+  .MuiFormControl-root {
+    .MuiSelect-select {
+      color: #1e293b !important;
+      background: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    .MuiOutlinedInput-root {
+      background: rgba(255, 255, 255, 0.95) !important;
+
+      .MuiOutlinedInput-notchedOutline {
+        border-color: rgba(0, 0, 0, 0.25) !important;
+      }
+    }
+
+    .MuiInputLabel-root {
+      color: #64748b !important;
     }
   }
 
   // Buttons
   .MuiButton-root {
-    color: var(--text-primary) !important;
+    color: #1e293b !important;
 
     &.MuiButton-outlined {
-      border-color: var(--border-color) !important;
+      border-color: rgba(0, 0, 0, 0.25) !important;
+      background: rgba(255, 255, 255, 0.9) !important;
 
       &:hover {
         border-color: var(--accent-primary) !important;
-        background-color: rgba(2, 132, 199, 0.04) !important;
+        background-color: rgba(3, 105, 161, 0.08) !important;
+        color: var(--accent-primary) !important;
+      }
+    }
+
+    &.MuiButton-contained {
+      background: var(--accent-primary) !important;
+      color: white !important;
+
+      &:hover {
+        background: #0284c7 !important;
       }
     }
   }
 
   // Chips
   .MuiChip-root {
-    color: var(--text-primary) !important;
-    border-color: var(--border-color) !important;
+    color: #1e293b !important;
+    background: rgba(241, 245, 249, 0.9) !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  }
+
+  // Icon buttons
+  .MuiIconButton-root {
+    color: #475569 !important;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.04) !important;
+      color: var(--accent-primary) !important;
+    }
   }
 
   // Spell cards
   .spell-card {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.98) !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
 
     h3 {
       color: var(--accent-primary) !important;
     }
 
     .description {
-      color: var(--text-secondary) !important;
+      color: #475569 !important;
+    }
+
+    p {
+      color: #475569 !important;
     }
   }
 
   // Load more button
   .load-more-button {
-    background: rgba(255, 255, 255, 0.9) !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
-    color: var(--text-primary) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    color: #1e293b !important;
 
     &:hover {
       background: var(--accent-primary) !important;
       color: white !important;
       border-color: var(--accent-primary) !important;
+    }
+  }
+
+  // Navigation links in sidebar
+  .nav a {
+    color: #475569 !important;
+
+    &.active {
+      color: var(--accent-primary) !important;
+      background: rgba(3, 105, 161, 0.1) !important;
+    }
+
+    &:hover {
+      color: var(--accent-primary) !important;
+      background: rgba(3, 105, 161, 0.05) !important;
+    }
+  }
+
+  // Brand text
+  .brand {
+    color: #1e293b !important;
+  }
+
+  // Menu items
+  .MuiMenuItem-root {
+    color: #1e293b !important;
+
+    &:hover {
+      background: rgba(3, 105, 161, 0.04) !important;
+    }
+
+    &.Mui-selected {
+      background: rgba(3, 105, 161, 0.08) !important;
+      color: var(--accent-primary) !important;
+    }
+  }
+
+  // Paper backgrounds (dropdowns, etc.)
+  .MuiPaper-root {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+
+  // Theme toggle in light mode
+  .theme-toggle {
+    .MuiIconButton-root {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border: 1px solid rgba(0, 0, 0, 0.15) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+
+      &:hover {
+        background: rgba(255, 255, 255, 1) !important;
+        border-color: var(--accent-primary) !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+      }
     }
   }
 }
@@ -210,6 +329,7 @@ body {
 .main-content {
   flex: 1;
   padding: 2rem;
+  padding-top: 6rem; // Extra padding for theme toggle
   margin-left: 280px;
   overflow-y: auto;
   min-height: 100vh;
@@ -220,6 +340,17 @@ body {
   .main-content {
     margin-left: 0;
     padding: 1rem;
+    padding-top: 5rem; // Account for theme toggle on mobile
+  }
+
+  .theme-toggle {
+    top: 16px;
+    right: 16px;
+
+    .MuiIconButton-root {
+      width: 44px;
+      height: 44px;
+    }
   }
 }
 
@@ -260,7 +391,7 @@ body {
 .load-more-button {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 
   &::before {
     content: "";
@@ -275,7 +406,7 @@ body {
       rgba(255, 255, 255, 0.1),
       transparent
     );
-    transition: left 0.6s;
+    transition: left 0.4s;
   }
 
   &:hover {
@@ -315,7 +446,7 @@ html {
 
 /* Enhanced card hover effects */
 .character-card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     transform: translateY(-8px) scale(1.02);
@@ -374,7 +505,7 @@ html {
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 1rem;
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
 
   &:hover {
     transform: translateY(-2px);
@@ -447,30 +578,119 @@ html {
   color: white;
 }
 
-// Theme Toggle
+// Theme Toggle - Professional floating button with glassmorphism
 .theme-toggle {
   position: fixed;
-  bottom: 24px;
+  top: 24px;
   right: 24px;
   z-index: 1000;
+  pointer-events: auto;
+  isolation: isolate;
 
   .MuiIconButton-root {
-    background: var(--bg-glass) !important;
-    border: 1px solid var(--border-color) !important;
-    backdrop-filter: blur(20px);
-    transition: all 0.3s ease;
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
 
+    // Enhanced glassmorphism effect
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--border-color) !important;
+
+    // Advanced shadow system
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    // Smooth transitions with cubic-bezier easing
+    transition: all 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    cursor: pointer;
+    pointer-events: auto;
+
+    // Enhanced hover effects
     &:hover {
+      transform: translateY(-2px) scale(1.02) !important;
       background: var(--bg-card) !important;
       border-color: var(--accent-primary) !important;
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 8px 25px var(--shadow-color);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.16),
+        0 4px 16px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    // Refined active state
+    &:active {
+      transform: translateY(-1px) scale(0.98) !important;
+      transition: all 0.08s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    // Improved focus state for accessibility
+    &:focus-visible {
+      outline: 2px solid var(--accent-primary) !important;
+      outline-offset: 3px;
+    }
+
+    // Icon styling
+    .MuiSvgIcon-root {
+      font-size: 24px;
+      transition: all 0.12s ease;
+    }
+  }
+
+  // Mobile responsive adjustments
+  @media (max-width: 768px) {
+    top: 16px;
+    right: 16px;
+
+    .MuiIconButton-root {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+
+      .MuiSvgIcon-root {
+        font-size: 20px;
+      }
+    }
+  }
+
+  // High contrast mode support
+  @media (prefers-contrast: high) {
+    .MuiIconButton-root {
+      border-width: 2px !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+    }
+  }
+
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    .MuiIconButton-root {
+      transition: background-color 0.1s ease, border-color 0.1s ease !important;
+
+      &:hover {
+        transform: none !important;
+      }
+    }
+  }
+}
+
+// Light theme specific overrides
+[data-theme="light"] {
+  .theme-toggle {
+    .MuiIconButton-root {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border-color: rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border-color: rgba(125, 211, 252, 0.4) !important;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12),
+          0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      }
     }
   }
 }
 
 // Ensure smooth transitions for theme changes
 * {
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease !important;
+  transition: background-color 0.08s ease, color 0.08s ease,
+    border-color 0.08s ease !important;
 }
