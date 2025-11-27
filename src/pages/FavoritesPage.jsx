@@ -1,4 +1,3 @@
-// Favorites page to display favorited characters
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Box, Typography, Container, Alert } from '@mui/material'

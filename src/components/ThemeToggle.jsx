@@ -44,7 +44,6 @@ export default function ThemeToggle() {
     event.preventDefault()
     event.stopPropagation()
     
-    // Add haptic feedback for mobile devices
     if ('vibrate' in navigator) {
       navigator.vibrate(50)
     }
@@ -79,7 +78,7 @@ export default function ThemeToggle() {
             boxShadow: muiTheme.shadows[4],
             '&:hover': {
               backgroundColor: muiTheme.palette.action.hover,
-              transform: 'none', // Prevent MUI default transform
+              transform: 'none', 
             },
             '&:focus-visible': {
               outline: `2px solid ${muiTheme.palette.primary.main}`,

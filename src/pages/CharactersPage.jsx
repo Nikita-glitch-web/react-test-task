@@ -77,7 +77,6 @@ export default function CharactersPage() {
     return () => (mounted = false)
   }, [])
 
-  // Reset pagination when filters change
   useEffect(() => {
     reset()
   }, [searchTerm, selectedHouse])
@@ -111,8 +110,6 @@ export default function CharactersPage() {
         >
           Characters
         </Typography>
-
-        {/* Search and Filter Controls */}
         <Box 
           sx={{ 
             display: 'flex', 
@@ -189,8 +186,6 @@ export default function CharactersPage() {
             </Select>
           </FormControl>
         </Box>
-
-        {/* Results Info */}
         <Box sx={{ mb: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography variant="body1" sx={{ color: '#9aa4b2' }}>
           {loading ? 'Loading...' : `Showing ${showingCount} of ${totalItems} character${totalItems !== 1 ? 's' : ''}`}
@@ -216,8 +211,6 @@ export default function CharactersPage() {
           )}
         </Box>
       </motion.div>
-
-      {/* Characters Grid */}
       {loading ? (
         <CharacterGridSkeleton />
       ) : (
@@ -253,8 +246,6 @@ export default function CharactersPage() {
               );
             })}
           </Box>
-
-          {/* Load More Button */}
           {hasMore && (
             <motion.div
               initial={{ opacity: 0, y: 30 }}

@@ -1,7 +1,3 @@
-// src/api/hpApi.js
-// Simple API helpers using axios to fetch characters and spells from the public HP API.
-// Keep functions small and composable so pages/components can import only what they need.
-
 import axios from 'axios'
 
 const BASE_CHARS = 'https://hp-api.onrender.com/api/characters'

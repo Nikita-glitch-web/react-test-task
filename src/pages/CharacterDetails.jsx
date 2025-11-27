@@ -92,7 +92,6 @@ export default function CharacterDetails() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Back Button */}
         <Box sx={{ mb: 3 }}>
           <Button
             startIcon={<ArrowBack />}
@@ -108,8 +107,6 @@ export default function CharacterDetails() {
             Back to Characters
           </Button>
         </Box>
-
-        {/* Character Details Card */}
         <Card 
           sx={{ 
             background: 'linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))',
@@ -128,7 +125,6 @@ export default function CharacterDetails() {
                 alignItems: { xs: 'center', md: 'flex-start' }
               }}
             >
-              {/* Character Image */}
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -148,9 +144,7 @@ export default function CharacterDetails() {
                 />
               </motion.div>
 
-              {/* Character Info */}
               <Box sx={{ flex: 1, width: '100%' }}>
-                {/* Name and Favorite */}
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 3 }}>
                   <Typography 
                     variant="h3" 
@@ -179,8 +173,6 @@ export default function CharacterDetails() {
                     {isFavorite(character.name) ? <Favorite sx={{ fontSize: '2rem' }} /> : <FavoriteBorder sx={{ fontSize: '2rem' }} />}
                   </IconButton>
                 </Box>
-
-                {/* House Chip */}
                 {character.house && (
                   <Box sx={{ mb: 3 }}>
                     <Chip 
@@ -198,8 +190,6 @@ export default function CharacterDetails() {
                     />
                   </Box>
                 )}
-
-                {/* Details Grid */}
                 <Box sx={{ display: 'grid', gap: 2, mb: 3 }}>
                   {character.dateOfBirth && (
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -235,8 +225,6 @@ export default function CharacterDetails() {
                     </Box>
                   )}
                 </Box>
-
-                {/* Alternate Names */}
                 {character.alternate_names && character.alternate_names.length > 0 && (
                   <Box sx={{ mt: 3 }}>
                     <Typography variant="body2" sx={{ color: '#9aa4b2', fontStyle: 'italic' }}>

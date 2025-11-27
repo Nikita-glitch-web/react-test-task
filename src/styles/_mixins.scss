@@ -1,6 +1,4 @@
-// Professional Mixins Library
 
-// Layout Mixins
 @mixin flex-center {
   display: flex;
   align-items: center;
@@ -33,7 +31,6 @@
   height: 100%;
 }
 
-// Typography Mixins
 @mixin text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -52,7 +49,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-// Visual Effect Mixins
 @mixin glass-effect($opacity: 0.02) {
   background: rgba(255, 255, 255, $opacity);
   backdrop-filter: blur(20px);
@@ -84,7 +80,6 @@
   transition: box-shadow var(--transition-normal);
 }
 
-// Animation Mixins
 @mixin hover-lift {
   transition: transform var(--transition-fast),
     box-shadow var(--transition-fast);
@@ -111,7 +106,6 @@
   animation: slideInUp $duration ease-out;
 }
 
-// Interactive Element Mixins
 @mixin button-reset {
   background: none;
   border: none;
@@ -149,7 +143,6 @@
   }
 }
 
-// Layout Grid Mixins
 @mixin grid-responsive($min-width: 280px, $gap: var(--space-lg)) {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
@@ -166,7 +159,6 @@
   }
 }
 
-// Responsive Mixins
 @mixin mobile-only {
   @media (max-width: 767px) {
     @content;
@@ -191,7 +183,6 @@
   }
 }
 
-// Form Element Mixins
 @mixin input-field {
   padding: var(--space-sm) var(--space-md);
   border: 1px solid var(--border-primary);
@@ -222,7 +213,6 @@
   }
 }
 
-// Loading State Mixins
 @mixin skeleton {
   background: linear-gradient(
     90deg,
@@ -239,7 +229,6 @@
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-// Utility Mixins
 @mixin sr-only {
   position: absolute;
   width: 1px;
@@ -263,7 +252,6 @@
 @mixin aspect-ratio($width, $height) {
   aspect-ratio: #{$width} / #{$height};
 
-  // Fallback for older browsers
   @supports not (aspect-ratio: 1 / 1) {
     position: relative;
 

@@ -15,12 +15,11 @@ export default function CharacterCard({ character, index }) {
   const { isFavorite, toggleFavorite } = useFavorites()
 
   const handleFavoriteClick = (e) => {
-    e.preventDefault() // Prevent navigation when clicking favorite button
+    e.preventDefault() 
     e.stopPropagation()
-    toggleFavorite({ ...character, index }) // Include index for routing
+    toggleFavorite({ ...character, index }) 
   }
 
-  // Truncate long names to ensure uniform card sizes
   const truncateName = (name, maxLength = 20) => {
     return name && name.length > maxLength ? `${name.substring(0, maxLength)}...` : name
   }
@@ -34,7 +33,7 @@ export default function CharacterCard({ character, index }) {
     >
       <Card 
         sx={{ 
-          height: 140, // Fixed height for uniform card sizes
+          height: 140,
           display: 'flex',
           alignItems: 'center',
           gap: 2,
@@ -60,7 +59,7 @@ export default function CharacterCard({ character, index }) {
           sx={{ 
             width: 80, 
             height: 80,
-            flexShrink: 0, // Prevent avatar from shrinking
+            flexShrink: 0, 
             border: character.house ? `3px solid ${houseColors[character.house]}` : '3px solid #555',
             boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
           }}
@@ -68,7 +67,7 @@ export default function CharacterCard({ character, index }) {
         
         <Box sx={{ 
           flex: 1, 
-          minWidth: 0, // Allow content to shrink
+          minWidth: 0, 
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -86,7 +85,7 @@ export default function CharacterCard({ character, index }) {
               textOverflow: 'ellipsis',
               whiteSpace: 'nowrap'
             }}
-            title={character.name} // Show full name on hover
+            title={character.name} 
           >
             {truncateName(character.name)}
           </Typography>
@@ -123,7 +122,7 @@ export default function CharacterCard({ character, index }) {
                   whiteSpace: 'nowrap',
                   display: 'block'
                 }}
-                title={`Played by ${character.actor}`} // Show full actor name on hover
+                title={`Played by ${character.actor}`}
               >
                 {character.actor}
               </Typography>
@@ -135,7 +134,7 @@ export default function CharacterCard({ character, index }) {
           onClick={handleFavoriteClick}
           size="small"
           sx={{
-            flexShrink: 0, // Prevent button from shrinking
+            flexShrink: 0,
             color: isFavorite(character.name) ? '#ff4757' : '#9aa4b2',
             transition: 'all 0.2s ease',
             '&:hover': {

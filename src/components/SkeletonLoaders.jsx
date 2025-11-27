@@ -2,7 +2,6 @@ import React from 'react'
 import { Skeleton, Card, CardContent, Box } from '@mui/material'
 import { motion } from 'framer-motion'
 
-// Animated skeleton loader for character cards
 export function CharacterCardSkeleton() {
   return (
     <motion.div

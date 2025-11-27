@@ -9,7 +9,6 @@ import CharacterDetails from './pages/CharacterDetails'
 import SpellsPage from './pages/SpellsPage'
 import FavoritesPage from './pages/FavoritesPage'
 
-// Create Material UI themes
 const createAppTheme = (mode) => createTheme({
   palette: {
     mode,

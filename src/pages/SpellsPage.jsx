@@ -22,7 +22,6 @@ export default function SpellsPage() {
   const [error, setError] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
 
-  // Filter spells based on search term
   const filteredSpells = spells.filter(spell => 
     spell.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     spell.description?.toLowerCase().includes(searchTerm.toLowerCase())
@@ -48,7 +47,6 @@ export default function SpellsPage() {
     return () => (mounted = false)
   }, [])
 
-  // Reset pagination when search changes
   useEffect(() => {
     reset()
   }, [searchTerm, reset])
@@ -124,8 +122,6 @@ export default function SpellsPage() {
           {loading ? 'Loading...' : `Showing ${showingCount} of ${filteredSpells.length} spell${filteredSpells.length !== 1 ? 's' : ''}`}
         </Typography>
       </motion.div>
-
-      {/* Spells List */}
       {loading ? (
         <SpellsListSkeleton />
       ) : (
@@ -178,8 +174,6 @@ export default function SpellsPage() {
           ))}
         </Box>
       )}
-
-      {/* Load More Button */}
       <AnimatePresence>
         {!loading && hasMore && (
           <motion.div

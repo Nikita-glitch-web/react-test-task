@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react'
 
-// Custom hook for managing favorites in localStorage
 export function useFavorites() {
   const [favorites, setFavorites] = useState([])
 
-  // Load favorites from localStorage on mount
   useEffect(() => {
     const saved = localStorage.getItem('hp-favorites')
     if (saved) {
@@ -17,7 +15,6 @@ export function useFavorites() {
     }
   }, [])
 
-  // Save favorites to localStorage whenever favorites change
   useEffect(() => {
     localStorage.setItem('hp-favorites', JSON.stringify(favorites))
   }, [favorites])
@@ -51,7 +48,6 @@ export function useFavorites() {
   return { favorites, addFavorite, removeFavorite, isFavorite, toggleFavorite }
 }
 
-// Custom hook for search and filtering
 export function useCharacterFilters(characters) {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedHouse, setSelectedHouse] = useState('')
